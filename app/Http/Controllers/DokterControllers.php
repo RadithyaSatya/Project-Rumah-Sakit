@@ -11,11 +11,18 @@ class DokterControllers extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $dktr = Dokter::latest()->paginate(5);
-        return view('dktr.index',compact('dktr'))->with('i', (request()->input('rage',1) -1) * 5);
+        $search = $request->get('search');
+
+        $dktr = Dokter::when($search, function ($query, $search) {
+            return $query->where('namaDokter', 'like', '%' . $search . '%');
+        })
+        ->paginate(10);
+
+        return view('dktr.index', compact('dktr'))->with('i', (request()->input('page', 1) - 1) * 10);
     }
+
 
     /**
      * Show the form for creating a new resource.

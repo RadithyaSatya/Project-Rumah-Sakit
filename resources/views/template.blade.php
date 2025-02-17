@@ -40,8 +40,8 @@
                          aria-expanded="false">
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="avatarDropdown">
                         <li>
-                            <a class="dropdown-item" href="/profile/photo" >
-                                Edit Photo
+                            <a class="dropdown-item" href="/profile" >
+                                Profile
                             </a>
                         </li>
                         <li>

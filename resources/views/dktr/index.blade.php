@@ -12,6 +12,14 @@
         </div>
     </div>
 
+    <!-- Form Pencarian -->
+    <form action="{{ route('dktr.index') }}" method="GET">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Cari Nama Dokter" name="search" value="{{ request()->get('search') }}">
+            <button class="btn btn-primary" type="submit">Cari</button>
+        </div>
+    </form>
+
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -37,7 +45,7 @@
             <td class="text-center">
                 <form action="{{ route('dktr.destroy', $dokter->id) }}" method="POST">
                     @csrf
-                    @method('DELETE')  {{-- Tambahkan ini untuk menggunakan metode DELETE --}}
+                    @method('DELETE')
 
                     <a href="{{ route('dktr.show', $dokter->id) }}" class="btn btn-info btn-sm">Show</a>
                     <a href="{{ route('dktr.edit', $dokter->id) }}" class="btn btn-primary btn-sm">Edit</a>
