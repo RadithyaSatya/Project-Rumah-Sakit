@@ -4,7 +4,7 @@
 <div class="row mt-5 mb-5 mx-5">
     <div class="col-lg-12 margin-tb">
         <div class="float-left">
-            <h2>Tambah Dokter Baru</h2>
+            <h2>Detail Dokter</h2>
         </div>
         <div class="float-right">
             <a href="{{ route('dktr.index') }}" class="btn btn-secondary">Kembali</a>
@@ -12,90 +12,43 @@
     </div>
 </div>
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <strong>Upsii!!</strong> Input gagal. <br><br>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-<form action="{{ route('dktr.store') }}" method="POST">
-    @csrf
-    <div class="row mx-5">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>ID Dokter:</strong>
-                <input type="text" name="idDokter" class="form-control" placeholder="ID DOKTER">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Nama Dokter:</strong>
-                <input type="text" name="namaDokter" class="form-control" placeholder="NAMA DOKTER">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Tanggal Lahir:</strong>
-                <input type="date" name="tanggalLahir" class="form-control" placeholder="Tanggal Lahir">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Spesialisasi:</strong>
-                <select name="spesialisasi" class="form-control">
-                    <option> - Spesialisasi - </option>
-                    <option value="Poli Umum">Poli Umum</option>
-                    <option value="Poli Anak">Poli Anak</option>
-                    <option value="Poli Gigi">Poli Gigi</option>
-                    <option value="Poli Mata">Poli Mata</option>
-                    <option value="Poli Kulit">Poli Kulit</option>
-                    <option value="Poli Penyakit Dalam">Poli Penyakit Dalam</option>
-                    <option value="Poli Konseling">Poli Konseling</option>
-                    <option value="Poli Saraf">Poli Saraf</option>
-                    <option value="Poli THT">Poli THT</option>
-                    <option value="Poli Bedah">Poli Bedah</option>
-                    <option value="Poli Paru">Poli Paru</option>
-                    <option value="Poli Jantung">Poli Jantung</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Lokasi Praktik:</strong>
-                <select name="lokasiPraktik" class="form-control">
-                    <option> - Lokasi - </option>
-                    <option value="Jatiwaringin">Jatiwaringin</option>
-                    <option value="Cipayung">Cipayung</option>
-                    <option value="Cilangkap">Cilangkap</option>
-                    <option value="Munjul">Munjul</option>
-                    <option value="Cibubur">Cibubur</option>
-                    <option value="Jatinegara">Jatinegara</option>
-                    <option value="Matraman">Matraman</option>
-                    <option value="Kebon Jeruk">Kebon Jeruk</option>
-                    <option value="Tangerang">Tangerang</option>
-                    <option value="Depok">Depok</option>
-                    <option value="Bekasi">Bekasi</option>
-                    <option value="Tambun">Tambun</option>
-                    <option value="Cikarang">Cikarang</option>
-                </select>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Jam Praktik:</strong>
-                <input type="time" class="form-control" name="jamPraktik">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">
-                Insert
-            </button>
+<div class="row mx-5">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>ID Dokter:</strong>
+            <p>{{ $dktr->idDokter }}</p>
         </div>
     </div>
-</form>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Nama Dokter:</strong>
+            <p>{{ $dktr->namaDokter }}</p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Tanggal Lahir:</strong>
+            <p>{{ $dktr->tanggalLahir }}</p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Spesialisasi:</strong>
+            <p>{{ $dktr->spesialisasi }}</p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Lokasi Praktik:</strong>
+            <p>{{ $dktr->lokasiPraktik }}</p>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Jam Praktik:</strong>
+            <p>{{ $dktr->jamPraktik }}</p>
+        </div>
+    </div>
+</div>
 
+@endsection

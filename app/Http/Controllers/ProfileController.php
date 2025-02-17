@@ -12,6 +12,29 @@ class ProfileController extends Controller
         return view('uploadpoto.upload');
     }
 
+    public function index()
+    {
+        return view('profile');
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . Auth::id(),
+            'alamat' => 'required|string|max:255',
+        ]);
+
+        $user = Auth::user();
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'alamat' => $request->alamat,
+        ]);
+
+        return redirect()->route('profile')->with('success', 'Profile updated successfully.');
+    }
+
     public function updatePhoto(Request $request)
     {
         $request->validate([

@@ -4,10 +4,10 @@
     <div class="row mt-5 mb-5">
         <div class="col-lg-12 margin-tb">
             <div class="float-left">
-                <h2>CRUD DOKTER</h2>
+                <h2>CRUD RUANGAN</h2>
             </div>
             <div class="float-right">
-                <a href="{{ route('dktr.create') }}" class="btn btn-success">Input Dokter</a>
+                <a href="{{ route('ruangan.create') }}" class="btn btn-success">Input Ruangan</a>
             </div>
         </div>
     </div>
@@ -21,26 +21,26 @@
     <table class="table table-bordered">
         <tr>
             <th class="text-center" width='20px'>Id</th>
-            <th>ID Dokter</th>
-            <th class="text-center" width='20%'>Nama Dokter</th>
-            <th class="text-center" width='280px'>Tanggal Lahir</th>
-            <th class="text-center" width='280px'>Spesialisasi</th>
+            <th>Kode Ruangan</th>
+            <th class="text-center" width='20%'>Nama Ruangan</th>
+            <th class="text-center" width='280px'>Daya Tampung</th>
+            <th class="text-center" width='280px'>Lokasi</th>
             <th class="text-center" width='20%'>Action</th>
         </tr>
-        @foreach ($dktr as $dokter)
+        @foreach ($ruangan as $ruang)
         <tr>
             <td class="text-center">{{ ++$i }}</td>
-            <td>{{ $dokter->idDokter }}</td>
-            <td>{{ $dokter->namaDokter }}</td>
-            <td>{{ $dokter->tanggalLahir }}</td>
-            <td>{{ $dokter->spesialisasi }}</td>
+            <td>{{ $ruang->kodeRuangan }}</td>
+            <td>{{ $ruang->namaRuangan }}</td>
+            <td>{{ $ruang->dayaTampung }}</td>
+            <td>{{ $ruang->lokasi }}</td>
             <td class="text-center">
-                <form action="{{ route('dktr.destroy', $dokter->id) }}" method="POST">
+                <form action="{{ route('ruangan.destroy', $ruang->id) }}" method="POST">
                     @csrf
                     @method('DELETE')  {{-- Tambahkan ini untuk menggunakan metode DELETE --}}
 
-                    <a href="{{ route('dktr.show', $dokter->id) }}" class="btn btn-info btn-sm">Show</a>
-                    <a href="{{ route('dktr.edit', $dokter->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                    <a href="{{ route('ruangan.show', $ruang->id) }}" class="btn btn-info btn-sm">Show</a>
+                    <a href="{{ route('ruangan.edit', $ruang->id) }}" class="btn btn-primary btn-sm">Edit</a>
 
                     <button type="submit" class="btn btn-danger btn-sm"
                         onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">Delete
@@ -50,5 +50,5 @@
         </tr>
         @endforeach
     </table>
-    {!! $dktr->links() !!}
+    {!! $ruangan->links() !!}
 @endsection
