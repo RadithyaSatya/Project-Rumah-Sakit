@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokter;
+use App\Models\Ruangan;
 use Illuminate\Http\Request;
 
 class DokterControllers extends Controller
@@ -21,7 +22,8 @@ class DokterControllers extends Controller
      */
     public function create()
     {
-        return view('dktr.create');
+        $ruangan = Ruangan::all();
+        return view('dktr.create', compact('ruangan'));
     }
 
     /**
@@ -55,7 +57,8 @@ class DokterControllers extends Controller
      */
     public function edit(Dokter $dktr)
     {
-        return view('dktr.edit', compact('dktr'));
+        $ruangan = Ruangan::all();
+        return view('dktr.edit', compact('dktr', 'ruangan'));
     }
 
     /**

@@ -67,22 +67,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Lokasi Praktik:</strong>
+                <strong>Lokasi Ruangan:</strong>
                 <select name="lokasiPraktik" class="form-control">
                     <option value="{{ $dktr->lokasiPraktik }}"> {{ $dktr->lokasiPraktik }} </option>
-                    <option value="Jatiwaringin">Jatiwaringin</option>
-                    <option value="Cipayung">Cipayung</option>
-                    <option value="Cilangkap">Cilangkap</option>
-                    <option value="Munjul">Munjul</option>
-                    <option value="Cibubur">Cibubur</option>
-                    <option value="Jatinegara">Jatinegara</option>
-                    <option value="Matraman">Matraman</option>
-                    <option value="Kebon Jeruk">Kebon Jeruk</option>
-                    <option value="Tangerang">Tangerang</option>
-                    <option value="Depok">Depok</option>
-                    <option value="Bekasi">Bekasi</option>
-                    <option value="Tambun">Tambun</option>
-                    <option value="Cikarang">Cikarang</option>
+                    @foreach ($ruangan as $room)
+                        <option value="{{ $room->namaRuangan }}">{{ $room->namaRuangan }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
