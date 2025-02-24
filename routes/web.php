@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DokterControllers;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\PasienRecordController;
 use App\Http\Controllers\ResetPasswordController;
 
 Route::get('/', function () {
@@ -17,6 +18,7 @@ Route::get('/registrasi',[LoginController::class,"registrasi"])->name("registras
 Route::post('create',[LoginController::class,"create"])->name("create");
 
 Route::middleware('auth')->group(function () {
+    Route::resource('pasien',PasienRecordController::class);
     Route::resource('dktr',DokterControllers::class);
     Route::resource('ruangan',RuanganController::class);
     Route::get('actionlogout',[LoginController::class,"actionlogout"])->name("actionlogout");

@@ -17,7 +17,10 @@ class RuanganFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'kodeRuangan' => strtoupper($this->faker->unique()->lexify('R-???')),
+            'namaRuangan' => $this->faker->sentence(2),
+            'dayaTampung' => $this->faker->numberBetween(10, 100),
+            'lokasi' => $this->faker->address,
         ];
     }
 }

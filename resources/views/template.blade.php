@@ -28,6 +28,11 @@
                             <i class="bi bi-house-door-fill me-1"></i> Ruangan
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/pasien">
+                            <i class="bi bi-house-door-fill me-1"></i> Pasien
+                        </a>
+                    </li>
                 </ul>
                 @auth
                 <div class="dropdown">
